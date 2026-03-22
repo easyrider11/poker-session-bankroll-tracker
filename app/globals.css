@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --surface-0: #f4f0e7;
+  --surface-1: #fbf8f1;
+  --surface-2: #f0e9de;
+  --line: #ddd2bf;
+  --ink-1: #181511;
+  --ink-2: #5a5147;
+  --ink-3: #897f73;
+  --accent: #5d5851;
+  --accent-soft: #e5dfd6;
+  --on-accent: #f8f5ee;
+  --positive: #0f766e;
+  --negative: #b42318;
+}
+
+@theme inline {
+  --color-background: var(--surface-0);
+  --color-foreground: var(--ink-1);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--surface-0);
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(93, 88, 81, 0.09), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(137, 127, 115, 0.14), transparent 32%),
+    var(--surface-0);
+  color: var(--ink-1);
+  font-family: var(--font-manrope), sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(93, 88, 81, 0.18);
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
