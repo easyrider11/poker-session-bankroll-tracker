@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+*.swp
 AGENTS.md
 CLAUDE.md
 preview/
@@ -37,6 +38,7 @@ yarn-error.log*
 .env*
 prisma/*.db
 prisma/*.db-journal
+prisma/*.prepush-backup
 
 # vercel
 .vercel
