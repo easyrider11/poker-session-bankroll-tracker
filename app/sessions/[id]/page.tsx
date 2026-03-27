@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SessionStatusBadge } from "@/components/session-status-badge";
+import { DeleteSessionButton } from "@/components/sessions/delete-session-button";
 import { FinalizeSessionButton } from "@/components/sessions/finalize-session-button";
 import { SessionSettlementTable } from "@/components/sessions/session-settlement-table";
 import { PageHeader } from "@/components/page-header";
@@ -62,6 +63,10 @@ export default async function SessionDetailPage({
             >
               New session
             </Link>
+            <DeleteSessionButton
+              sessionId={serializedSession.id}
+              finalizedAt={serializedSession.finalizedAt}
+            />
             <FinalizeSessionButton
               sessionId={serializedSession.id}
               finalizedAt={serializedSession.finalizedAt}

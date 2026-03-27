@@ -28,13 +28,6 @@ export default async function SessionsPage({
   const status = params.status === "finalized" || params.status === "draft" ? params.status : "all";
 
   const where = {
-    ...(query
-      ? {
-          title: {
-            contains: query,
-          },
-        }
-      : {}),
     ...(status === "finalized"
       ? {
           finalizedAt: {
@@ -48,7 +41,7 @@ export default async function SessionsPage({
         : {}),
   };
 
-  const [sessions, totalSessions, finalizedSessions, draftSessions] = await Promise.all([
+  const [allSessions, totalSessions, finalizedSessions, draftSessions] = await Promise.all([
     prisma.pokerSession.findMany({
       where,
       include: {
@@ -81,6 +74,10 @@ export default async function SessionsPage({
       },
     }),
   ]);
+
+  const sessions = query
+    ? allSessions.filter((s) => s.title.toLowerCase().includes(query.toLowerCase()))
+    : allSessions;
 
   return (
     <div className="space-y-8">
