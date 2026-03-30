@@ -53,6 +53,20 @@ export type SerializedPlayer = {
   totalSessions: number;
 };
 
+export type SerializedSessionBuilderPlayer = {
+  id: number;
+  name: string;
+  nickname: string | null;
+  lifetimeProfit: number;
+  totalSessions: number;
+};
+
+export type SerializedSessionRosterPlayer = {
+  id: number;
+  name: string;
+  nickname: string | null;
+};
+
 export type SerializedSession = {
   id: number;
   title: string;
@@ -115,6 +129,28 @@ export function serializePlayer(player: Player): SerializedPlayer {
     lifetimeCashout: player.lifetimeCashout,
     lifetimeProfit: player.lifetimeProfit,
     totalSessions: player.totalSessions,
+  };
+}
+
+export function serializeSessionBuilderPlayer(
+  player: Pick<Player, "id" | "name" | "nickname" | "lifetimeProfit" | "totalSessions">,
+): SerializedSessionBuilderPlayer {
+  return {
+    id: player.id,
+    name: player.name,
+    nickname: player.nickname,
+    lifetimeProfit: player.lifetimeProfit,
+    totalSessions: player.totalSessions,
+  };
+}
+
+export function serializeSessionRosterPlayer(
+  player: Pick<Player, "id" | "name" | "nickname">,
+): SerializedSessionRosterPlayer {
+  return {
+    id: player.id,
+    name: player.name,
+    nickname: player.nickname,
   };
 }
 
