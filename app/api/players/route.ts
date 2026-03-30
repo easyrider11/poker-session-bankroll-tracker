@@ -14,27 +14,21 @@ export async function GET(request: Request) {
 
   try {
     const players = await prisma.player.findMany({
-      where: q
-        ? {
-            OR: [
-              {
-                name: {
-                  contains: q,
-                },
-              },
-              {
-                nickname: {
-                  contains: q,
-                },
-              },
-            ],
-          }
-        : undefined,
       orderBy: [{ lifetimeProfit: "desc" }, { name: "asc" }],
     });
 
+    const filtered = q
+      ? players.filter((player) => {
+          const lowerQ = q.toLowerCase();
+          return (
+            player.name.toLowerCase().includes(lowerQ) ||
+            (player.nickname?.toLowerCase().includes(lowerQ) ?? false)
+          );
+        })
+      : players;
+
     return NextResponse.json({
-      players: players.map(serializePlayer),
+      players: filtered.map(serializePlayer),
     });
   } catch (error) {
     return handleRouteError(error);

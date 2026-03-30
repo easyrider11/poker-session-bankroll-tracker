@@ -21,6 +21,7 @@ export async function POST(
 
     revalidatePath("/");
     revalidatePath("/players");
+    revalidatePath("/sessions");
     revalidatePath(`/sessions/${sessionId}`);
 
     session.sessionPlayers.forEach((sessionPlayer) => {

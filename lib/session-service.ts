@@ -232,6 +232,31 @@ export async function updateSessionPlayerCashout(sessionPlayerId: number, cashou
   });
 }
 
+export async function deleteSession(sessionId: number) {
+  return prisma.$transaction(async (tx) => {
+    const session = await tx.pokerSession.findUnique({
+      where: { id: sessionId },
+    });
+
+    if (!session) {
+      throw new ServiceError("Session not found.", 404);
+    }
+
+    if (session.finalizedAt) {
+      throw new ServiceError(
+        "Finalized sessions cannot be deleted. Their results are already applied to player lifetime stats.",
+        409,
+      );
+    }
+
+    await tx.pokerSession.delete({
+      where: { id: sessionId },
+    });
+
+    return session;
+  });
+}
+
 export async function finalizeSession(sessionId: number) {
   return prisma.$transaction(async (tx) => {
     const session = await tx.pokerSession.findUnique({
