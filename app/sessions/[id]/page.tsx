@@ -1,3 +1,4 @@
+import { ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -59,14 +60,16 @@ export default async function SessionDetailPage({
           <div className="flex flex-wrap gap-3">
             <Link
               href="/sessions"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <ChevronLeft size={15} />
               Back to history
             </Link>
             <Link
               href="/sessions/new"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <Plus size={15} />
               New session
             </Link>
             <DeleteSessionButton

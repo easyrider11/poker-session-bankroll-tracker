@@ -1,3 +1,5 @@
+import { CheckCircle2, Radio } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 export function SessionStatusBadge({
@@ -10,13 +12,18 @@ export function SessionStatusBadge({
   return (
     <span
       className={cn(
-        "inline-flex rounded-full px-3 py-1 text-xs font-semibold",
+        "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold",
         finalizedAt
           ? "bg-[var(--accent-soft)] text-[var(--ink-1)]"
           : "bg-[var(--surface-2)] text-[var(--ink-2)]",
         className,
       )}
     >
+      {finalizedAt ? (
+        <CheckCircle2 size={12} className="text-[var(--positive)]" />
+      ) : (
+        <Radio size={12} className="text-[var(--negative)]" />
+      )}
       {finalizedAt ? "Finalized" : "Live draft"}
     </span>
   );

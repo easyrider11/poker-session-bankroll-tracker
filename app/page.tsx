@@ -1,3 +1,4 @@
+import { Users, CalendarDays, ArrowDownLeft, TrendingUp, Zap, History, Plus } from "lucide-react";
 import Link from "next/link";
 
 import { EmptyState } from "@/components/empty-state";
@@ -59,20 +60,23 @@ export default async function Home() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/players"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <Users size={15} />
               Manage players
             </Link>
             <Link
               href="/sessions"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <History size={15} />
               View history
             </Link>
             <Link
               href="/sessions/new"
-              className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
             >
+              <Plus size={15} />
               Start new session
             </Link>
           </div>
@@ -80,17 +84,29 @@ export default async function Home() {
       />
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Players" value={playerCount.toString()} helper="Persistent roster" />
-        <StatCard label="Sessions" value={sessionCount.toString()} helper={`${finalizedCount} finalized`} />
+        <StatCard
+          label="Players"
+          value={playerCount.toString()}
+          helper="Persistent roster"
+          icon={Users}
+        />
+        <StatCard
+          label="Sessions"
+          value={sessionCount.toString()}
+          helper={`${finalizedCount} finalized`}
+          icon={CalendarDays}
+        />
         <StatCard
           label="Lifetime Buy-ins"
           value={formatCurrency(lifetimeTotals._sum.lifetimeBuyin ?? 0)}
           helper="Tracked across finalized sessions"
+          icon={ArrowDownLeft}
         />
         <StatCard
           label="Lifetime Profit"
           value={formatSignedCurrency(lifetimeTotals._sum.lifetimeProfit ?? 0)}
           helper="System-wide net should balance near zero"
+          icon={TrendingUp}
           tone={
             (lifetimeTotals._sum.lifetimeProfit ?? 0) > 0
               ? "positive"
@@ -104,12 +120,12 @@ export default async function Home() {
       <section className="grid gap-4 lg:grid-cols-3">
         <Link
           href="/sessions/new"
-          className="rounded-[28px] border border-[var(--line)] bg-[var(--surface-1)] p-5 shadow-[0_10px_40px_rgba(24,21,17,0.04)] transition hover:border-[var(--ink-1)]"
+          className="group rounded-[28px] border border-[var(--line)] bg-[var(--surface-1)] p-5 shadow-[0_10px_40px_rgba(24,21,17,0.04)] transition hover:border-[var(--ink-1)]"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--ink-3)]">
-            Quick action
-          </p>
-          <h2 className="mt-3 text-xl font-bold tracking-tight text-[var(--ink-1)]">
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)] text-[var(--on-accent)]">
+            <Zap size={18} />
+          </div>
+          <h2 className="text-xl font-bold tracking-tight text-[var(--ink-1)]">
             Start a session
           </h2>
           <p className="mt-2 text-sm leading-6 text-[var(--ink-2)]">
@@ -120,12 +136,12 @@ export default async function Home() {
 
         <Link
           href="/players"
-          className="rounded-[28px] border border-[var(--line)] bg-[var(--surface-1)] p-5 shadow-[0_10px_40px_rgba(24,21,17,0.04)] transition hover:border-[var(--ink-1)]"
+          className="group rounded-[28px] border border-[var(--line)] bg-[var(--surface-1)] p-5 shadow-[0_10px_40px_rgba(24,21,17,0.04)] transition hover:border-[var(--ink-1)]"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--ink-3)]">
-            Quick action
-          </p>
-          <h2 className="mt-3 text-xl font-bold tracking-tight text-[var(--ink-1)]">
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--surface-2)] text-[var(--ink-2)]">
+            <Users size={18} />
+          </div>
+          <h2 className="text-xl font-bold tracking-tight text-[var(--ink-1)]">
             Manage players
           </h2>
           <p className="mt-2 text-sm leading-6 text-[var(--ink-2)]">
@@ -135,12 +151,12 @@ export default async function Home() {
 
         <Link
           href="/sessions"
-          className="rounded-[28px] border border-[var(--line)] bg-[var(--surface-1)] p-5 shadow-[0_10px_40px_rgba(24,21,17,0.04)] transition hover:border-[var(--ink-1)]"
+          className="group rounded-[28px] border border-[var(--line)] bg-[var(--surface-1)] p-5 shadow-[0_10px_40px_rgba(24,21,17,0.04)] transition hover:border-[var(--ink-1)]"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--ink-3)]">
-            Quick action
-          </p>
-          <h2 className="mt-3 text-xl font-bold tracking-tight text-[var(--ink-1)]">
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--surface-2)] text-[var(--ink-2)]">
+            <History size={18} />
+          </div>
+          <h2 className="text-xl font-bold tracking-tight text-[var(--ink-1)]">
             Open history
           </h2>
           <p className="mt-2 text-sm leading-6 text-[var(--ink-2)]">
@@ -157,11 +173,13 @@ export default async function Home() {
           <EmptyState
             title="No sessions yet"
             description="Create your first poker session to start tracking buy-ins, cash-outs, and settlement results."
+            icon={CalendarDays}
             action={
               <Link
                 href="/sessions/new"
-                className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
               >
+                <Plus size={15} />
                 Create session
               </Link>
             }

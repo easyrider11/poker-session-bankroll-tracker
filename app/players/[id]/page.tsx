@@ -1,3 +1,4 @@
+import { CalendarDays, ArrowDownLeft, ArrowUpRight, TrendingUp, ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -60,14 +61,16 @@ export default async function PlayerDetailPage({
           <div className="flex flex-wrap gap-3">
             <Link
               href="/players"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <ChevronLeft size={15} />
               Back to players
             </Link>
             <Link
               href="/sessions/new"
-              className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
             >
+              <Plus size={15} />
               Start session
             </Link>
             <DeletePlayerButton
@@ -80,12 +83,13 @@ export default async function PlayerDetailPage({
       />
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Sessions played" value={String(player.totalSessions)} helper="Finalized sessions" />
-        <StatCard label="Lifetime Buy-in" value={formatCurrency(player.lifetimeBuyin)} />
-        <StatCard label="Lifetime Cash-out" value={formatCurrency(player.lifetimeCashout)} />
+        <StatCard label="Sessions played" value={String(player.totalSessions)} helper="Finalized sessions" icon={CalendarDays} />
+        <StatCard label="Lifetime Buy-in" value={formatCurrency(player.lifetimeBuyin)} icon={ArrowDownLeft} />
+        <StatCard label="Lifetime Cash-out" value={formatCurrency(player.lifetimeCashout)} icon={ArrowUpRight} />
         <StatCard
           label="Lifetime Profit"
           value={formatSignedCurrency(player.lifetimeProfit)}
+          icon={TrendingUp}
           tone={
             player.lifetimeProfit > 0
               ? "positive"
@@ -104,6 +108,7 @@ export default async function PlayerDetailPage({
           <EmptyState
             title="No session history"
             description="This player has not been included in any saved sessions yet."
+            icon={CalendarDays}
           />
         ) : (
           <div className="space-y-4">

@@ -1,3 +1,4 @@
+import { CalendarDays, CheckCircle2, Clock, Filter, Plus } from "lucide-react";
 import Link from "next/link";
 
 import { EmptyState } from "@/components/empty-state";
@@ -87,25 +88,38 @@ export default async function SessionsPage({
         actions={
           <Link
             href="/sessions/new"
-            className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
           >
+            <Plus size={15} />
             New session
           </Link>
         }
       />
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="All Sessions" value={String(totalSessions)} helper="Across the tracker" />
+        <StatCard
+          label="All Sessions"
+          value={String(totalSessions)}
+          helper="Across the tracker"
+          icon={CalendarDays}
+        />
         <StatCard
           label="Finalized"
           value={String(finalizedSessions)}
           helper="Lifetime stats already applied"
+          icon={CheckCircle2}
         />
-        <StatCard label="Drafts" value={String(draftSessions)} helper="Still open for live edits" />
+        <StatCard
+          label="Drafts"
+          value={String(draftSessions)}
+          helper="Still open for live edits"
+          icon={Clock}
+        />
         <StatCard
           label="Filtered Results"
           value={String(sessions.length)}
           helper={query || status !== "all" ? "Based on current filter" : "No filter applied"}
+          icon={Filter}
         />
       </section>
 
@@ -154,11 +168,13 @@ export default async function SessionsPage({
                 ? "Try changing the filters or clearing the search."
                 : "Create your first session to start building a usable session history."
             }
+            icon={CalendarDays}
             action={
               <Link
                 href="/sessions/new"
-                className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
               >
+                <Plus size={15} />
                 Create session
               </Link>
             }
