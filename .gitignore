@@ -47,3 +47,8 @@ prisma/*.prepush-backup
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# iOS / Swift
+ios/PokerLedgerCore/.build/
+ios/PokerLedger.xcodeproj/xcuserdata/
+ios/PokerLedger.xcodeproj/project.xcworkspace/xcuserdata/

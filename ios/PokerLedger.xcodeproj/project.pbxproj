@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29FCD3A63AE55D74EA51B448 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6042C50D8C10976EA6034C /* SessionDetailView.swift */; };
+		31AEE5524B2A2FACE0B52939 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D57173297E6FC8540CE62 /* Theme.swift */; };
+		3515E1F4B3B91EBBC8089272 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D332FD5305C39B58B9C12 /* PlayersView.swift */; };
+		5F225285A93A37D43CB5E276 /* CoreBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF94BB6101D6E74537B8A1B /* CoreBridge.swift */; };
+		6E98CB651C0BEAE81DF918E4 /* PlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BE5776551E367C87E9E9D /* PlayerDetailView.swift */; };
+		7388C3118447A65936CACDFF /* SessionHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B704E3A277334B5E17936C /* SessionHubView.swift */; };
+		758902795E5D506C2EAA61BF /* PokerLedgerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A1204F07DF5BA0300DCBDB /* PokerLedgerApp.swift */; };
+		8F33381EFDC35BBEBA760C3D /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D071640451606BDCE5AC1618 /* Components.swift */; };
+		AC441FE0756EF48AF146D473 /* LiveSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E24ED26CD623B3C0DDBCF3 /* LiveSessionView.swift */; };
+		ACB0301576FDD8DB1629D619 /* PokerLedgerRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8BFE9EE31A0464FA749C1 /* PokerLedgerRootView.swift */; };
+		AF39145A6DC3D7EEEB334EAF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202835B6D9CEB95AD657490 /* AppModel.swift */; };
+		B76DA36908D69D29FBCED42A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99A81FD61D060F9CC4DE6E86 /* Assets.xcassets */; };
+		EFE89F941AC5B24B119D64B0 /* PokerLedgerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6E23B7306FA646CC55D3A9 /* PokerLedgerCore */; };
+		F1E8CAFD5267F7514CC34343 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EF4285C2BCCD37AC48360 /* HistoryView.swift */; };
+		FD08CB0BFA1434DDFB9C2DE7 /* NewSessionWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3891C8D09C78C6C4FADB1BEA /* NewSessionWizardView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		295D57173297E6FC8540CE62 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		33B704E3A277334B5E17936C /* SessionHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHubView.swift; sourceTree = "<group>"; };
+		3891C8D09C78C6C4FADB1BEA /* NewSessionWizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionWizardView.swift; sourceTree = "<group>"; };
+		3CD8BFE9EE31A0464FA749C1 /* PokerLedgerRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerLedgerRootView.swift; sourceTree = "<group>"; };
+		51A1204F07DF5BA0300DCBDB /* PokerLedgerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerLedgerApp.swift; sourceTree = "<group>"; };
+		5C2BE5776551E367C87E9E9D /* PlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailView.swift; sourceTree = "<group>"; };
+		6A0E4FA663A77BB5FECC779D /* PokerLedgerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PokerLedgerCore; path = PokerLedgerCore; sourceTree = SOURCE_ROOT; };
+		7A68D170BE311D3260C78201 /* PokerLedger.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PokerLedger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E24ED26CD623B3C0DDBCF3 /* LiveSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSessionView.swift; sourceTree = "<group>"; };
+		8B6042C50D8C10976EA6034C /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		8D6D332FD5305C39B58B9C12 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		8F1EF4285C2BCCD37AC48360 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		99A81FD61D060F9CC4DE6E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADF94BB6101D6E74537B8A1B /* CoreBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBridge.swift; sourceTree = "<group>"; };
+		C202835B6D9CEB95AD657490 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		CE62DF319E91D453A38DB21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D071640451606BDCE5AC1618 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD46F41F40481A75441DF23C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFE89F941AC5B24B119D64B0 /* PokerLedgerCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07A89F4351AA96629C67C34B /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				D071640451606BDCE5AC1618 /* Components.swift */,
+				295D57173297E6FC8540CE62 /* Theme.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		24127551C9B244E0E3B73551 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				88E24ED26CD623B3C0DDBCF3 /* LiveSessionView.swift */,
+				3891C8D09C78C6C4FADB1BEA /* NewSessionWizardView.swift */,
+				8B6042C50D8C10976EA6034C /* SessionDetailView.swift */,
+				33B704E3A277334B5E17936C /* SessionHubView.swift */,
+			);
+			path = Sessions;
+			sourceTree = "<group>";
+		};
+		384B1CFA69BA334083860927 = {
+			isa = PBXGroup;
+			children = (
+				F494E93108CA5D682DC3CB42 /* Packages */,
+				8BC6864C52C4D63CA8FCDEE2 /* PokerLedger */,
+				E88FD37418298C1D16C9B5FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47FEADFB536C8B17BFE203EC /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A06C8CE6D2667B07B8A20A01 /* History */,
+				EAD6E3570D29982F150648EE /* Players */,
+				E51A02DFE8D656E44475428C /* Root */,
+				24127551C9B244E0E3B73551 /* Sessions */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		8BC6864C52C4D63CA8FCDEE2 /* PokerLedger */ = {
+			isa = PBXGroup;
+			children = (
+				99A81FD61D060F9CC4DE6E86 /* Assets.xcassets */,
+				CE62DF319E91D453A38DB21C /* Info.plist */,
+				C8C433437E38783961EC0FCC /* App */,
+				07A89F4351AA96629C67C34B /* DesignSystem */,
+				47FEADFB536C8B17BFE203EC /* Features */,
+			);
+			path = PokerLedger;
+			sourceTree = "<group>";
+		};
+		A06C8CE6D2667B07B8A20A01 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EF4285C2BCCD37AC48360 /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		C8C433437E38783961EC0FCC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C202835B6D9CEB95AD657490 /* AppModel.swift */,
+				ADF94BB6101D6E74537B8A1B /* CoreBridge.swift */,
+				51A1204F07DF5BA0300DCBDB /* PokerLedgerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E51A02DFE8D656E44475428C /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				3CD8BFE9EE31A0464FA749C1 /* PokerLedgerRootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E88FD37418298C1D16C9B5FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A68D170BE311D3260C78201 /* PokerLedger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAD6E3570D29982F150648EE /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				5C2BE5776551E367C87E9E9D /* PlayerDetailView.swift */,
+				8D6D332FD5305C39B58B9C12 /* PlayersView.swift */,
+			);
+			path = Players;
+			sourceTree = "<group>";
+		};
+		F494E93108CA5D682DC3CB42 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				6A0E4FA663A77BB5FECC779D /* PokerLedgerCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		043388D14CE191C09978FD6F /* PokerLedger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F85ACB02110848C0A316BE3A /* Build configuration list for PBXNativeTarget "PokerLedger" */;
+			buildPhases = (
+				98C08FCAED2ABBEC83883C5D /* Sources */,
+				CE8E82489B541E22D7FC7C0D /* Resources */,
+				CD46F41F40481A75441DF23C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PokerLedger;
+			packageProductDependencies = (
+				2C6E23B7306FA646CC55D3A9 /* PokerLedgerCore */,
+			);
+			productName = PokerLedger;
+			productReference = 7A68D170BE311D3260C78201 /* PokerLedger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D068921DA0B6F164CFB4D9A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					043388D14CE191C09978FD6F = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2F13C5607B0D3E21F726ADD7 /* Build configuration list for PBXProject "PokerLedger" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 384B1CFA69BA334083860927;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				20AD04E136FBB553CF740E70 /* XCLocalSwiftPackageReference "PokerLedgerCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E88FD37418298C1D16C9B5FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				043388D14CE191C09978FD6F /* PokerLedger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE8E82489B541E22D7FC7C0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B76DA36908D69D29FBCED42A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98C08FCAED2ABBEC83883C5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF39145A6DC3D7EEEB334EAF /* AppModel.swift in Sources */,
+				8F33381EFDC35BBEBA760C3D /* Components.swift in Sources */,
+				5F225285A93A37D43CB5E276 /* CoreBridge.swift in Sources */,
+				F1E8CAFD5267F7514CC34343 /* HistoryView.swift in Sources */,
+				AC441FE0756EF48AF146D473 /* LiveSessionView.swift in Sources */,
+				FD08CB0BFA1434DDFB9C2DE7 /* NewSessionWizardView.swift in Sources */,
+				6E98CB651C0BEAE81DF918E4 /* PlayerDetailView.swift in Sources */,
+				3515E1F4B3B91EBBC8089272 /* PlayersView.swift in Sources */,
+				758902795E5D506C2EAA61BF /* PokerLedgerApp.swift in Sources */,
+				ACB0301576FDD8DB1629D619 /* PokerLedgerRootView.swift in Sources */,
+				29FCD3A63AE55D74EA51B448 /* SessionDetailView.swift in Sources */,
+				7388C3118447A65936CACDFF /* SessionHubView.swift in Sources */,
+				31AEE5524B2A2FACE0B52939 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8C178D75016BF46D3B0A35E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PokerLedger;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = (
+					UIInterfaceOrientationPortrait,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.1;
+			};
+			name = Release;
+		};
+		CAE8DB80CD172686E74A9D4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PokerLedger;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = (
+					UIInterfaceOrientationPortrait,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.1;
+			};
+			name = Debug;
+		};
+		DAC6685E9035507E39590A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PokerLedger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pokerledger.PokerLedger;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F9F6290D8A111164D18D98ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PokerLedger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pokerledger.PokerLedger;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F13C5607B0D3E21F726ADD7 /* Build configuration list for PBXProject "PokerLedger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAE8DB80CD172686E74A9D4F /* Debug */,
+				8C178D75016BF46D3B0A35E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F85ACB02110848C0A316BE3A /* Build configuration list for PBXNativeTarget "PokerLedger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9F6290D8A111164D18D98ED /* Debug */,
+				DAC6685E9035507E39590A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		20AD04E136FBB553CF740E70 /* XCLocalSwiftPackageReference "PokerLedgerCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = PokerLedgerCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C6E23B7306FA646CC55D3A9 /* PokerLedgerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokerLedgerCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D068921DA0B6F164CFB4D9A6 /* Project object */;
+}
