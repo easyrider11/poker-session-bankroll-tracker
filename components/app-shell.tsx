@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, Users, History, Plus, Menu, X } from "lucide-react";
+import { LayoutDashboard, Users, History, Plus, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
@@ -47,7 +47,16 @@ function NavItems({ onNavigate }: { onNavigate?: () => void }) {
                   : "text-[var(--sidebar-text)] group-hover:text-[var(--sidebar-text-hover)]",
               )}
             />
-            {label(item.label, item.href === "/sessions/new")}
+            {item.href === "/sessions/new" ? (
+              <span className="flex flex-1 items-center justify-between">
+                {item.label}
+                <span className="rounded-md bg-[var(--sidebar-item-active)] px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--sidebar-text)]">
+                  +
+                </span>
+              </span>
+            ) : (
+              item.label
+            )}
           </Link>
         );
       })}
@@ -55,45 +64,20 @@ function NavItems({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
-function label(text: string, isPrimary?: boolean) {
-  if (isPrimary) {
-    return (
-      <span className="flex flex-1 items-center justify-between">
-        {text}
-        <span className="rounded-md bg-[var(--sidebar-item-active)] px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--sidebar-text)]">
-          +
-        </span>
-      </span>
-    );
-  }
-  return text;
-}
-
-function PokerChipIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="11" cy="11" r="2" fill="currentColor" />
-      <line x1="11" y1="1" x2="11" y2="5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="11" y1="17" x2="11" y2="21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="1" y1="11" x2="5" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="17" y1="11" x2="21" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <div className="flex h-full flex-col" style={{ background: "var(--sidebar-bg)" }}>
       {/* Logo */}
-      <div className="flex h-14 items-center gap-3 px-4" style={{ borderBottom: "1px solid var(--sidebar-border)" }}>
+      <div
+        className="flex h-14 items-center gap-3 px-5"
+        style={{ borderBottom: "1px solid var(--sidebar-border)" }}
+      >
         <Link
           href="/"
           onClick={onNavigate}
           className="flex items-center gap-2.5 text-[var(--sidebar-text-active)]"
         >
-          <PokerChipIcon />
+          <span className="text-xl leading-none">🃏</span>
           <span className="text-sm font-bold tracking-tight">Poker Tracker</span>
         </Link>
       </div>
@@ -108,12 +92,15 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
         </div>
       </div>
 
-      {/* Footer */}
+      {/* Footer — card suits */}
       <div
         className="px-4 py-3 text-center"
         style={{ borderTop: "1px solid var(--sidebar-border)" }}
       >
-        <p className="text-[11px] text-[var(--sidebar-text)] opacity-50">
+        <p className="text-sm tracking-[0.3em] text-[var(--sidebar-text)] opacity-60">
+          ♠ ♣ ♥ ♦
+        </p>
+        <p className="mt-1 text-[10px] text-[var(--sidebar-text)] opacity-35">
           Texas Hold&apos;em tracker
         </p>
       </div>
@@ -123,7 +110,6 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const pathname = usePathname();
 
   return (
     <div className="flex min-h-screen">
@@ -138,12 +124,10 @@ export function AppShell({ children }: { children: ReactNode }) {
       {/* Mobile: overlay + drawer */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
-          {/* Drawer */}
           <aside className="absolute inset-y-0 left-0 w-[240px] shadow-2xl">
             <Sidebar onNavigate={() => setMobileOpen(false)} />
           </aside>
@@ -168,7 +152,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Menu size={20} />
           </button>
           <Link href="/" className="flex items-center gap-2 text-[var(--sidebar-text-active)]">
-            <PokerChipIcon />
+            <span className="text-lg leading-none">🃏</span>
             <span className="text-sm font-bold">Poker Tracker</span>
           </Link>
           <Link

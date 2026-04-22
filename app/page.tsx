@@ -37,32 +37,32 @@ export default async function Home() {
     <div className="space-y-8">
       <PageHeader
         title="Dashboard"
-        description="Track player lifetimes, settle cash games, and keep every session auditable."
+        description="Track player bankrolls, settle the felt, and keep every cash game auditable."
         actions={
           <Link
             href="/sessions/new"
             className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--on-accent)] transition hover:opacity-90"
           >
-            <Plus size={15} />
-            New session
+            <span className="text-base leading-none">🃏</span>
+            Deal new session
           </Link>
         }
       />
 
       {/* Stats */}
       <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Players" value={playerCount.toString()} helper="Persistent roster" icon={Users} />
-        <StatCard label="Sessions" value={sessionCount.toString()} helper={`${finalizedCount} finalized`} icon={CalendarDays} />
+        <StatCard label="🪙 Players" value={playerCount.toString()} helper="Registered at the table" icon={Users} />
+        <StatCard label="🃏 Sessions" value={sessionCount.toString()} helper={`${finalizedCount} finalized`} icon={CalendarDays} />
         <StatCard
-          label="Lifetime Buy-ins"
+          label="♣ Lifetime Buy-ins"
           value={formatCurrency(lifetimeTotals._sum.lifetimeBuyin ?? 0)}
-          helper="Finalized sessions"
+          helper="Chips in — finalized sessions"
           icon={ArrowDownLeft}
         />
         <StatCard
-          label="Lifetime Profit"
+          label="♠ Lifetime Profit"
           value={formatSignedCurrency(lifetimeTotals._sum.lifetimeProfit ?? 0)}
-          helper="Net should balance near zero"
+          helper="Should net near zero across all players"
           icon={TrendingUp}
           tone={
             (lifetimeTotals._sum.lifetimeProfit ?? 0) > 0
@@ -84,9 +84,9 @@ export default async function Home() {
             <Zap size={18} />
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="text-sm font-semibold text-[var(--ink-1)]">Start a session</h2>
+            <h2 className="text-sm font-semibold text-[var(--ink-1)]">🃏 Deal a new session</h2>
             <p className="mt-1 text-sm leading-5 text-[var(--ink-3)]">
-              Pick players, set buy-ins, and jump straight into live tracking.
+              Seat players, set buy-ins, and go straight to the live felt.
             </p>
           </div>
           <ArrowRight size={16} className="mt-1 shrink-0 text-[var(--ink-3)] transition group-hover:translate-x-0.5" />
@@ -100,9 +100,9 @@ export default async function Home() {
             <Users size={18} />
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="text-sm font-semibold text-[var(--ink-1)]">Manage players</h2>
+            <h2 className="text-sm font-semibold text-[var(--ink-1)]">🪙 Manage players</h2>
             <p className="mt-1 text-sm leading-5 text-[var(--ink-3)]">
-              Add players, browse the roster, and review lifetime bankroll stats.
+              Build your roster, set nicknames, and track lifetime chip flow.
             </p>
           </div>
           <ArrowRight size={16} className="mt-1 shrink-0 text-[var(--ink-3)] transition group-hover:translate-x-0.5" />
@@ -116,9 +116,9 @@ export default async function Home() {
             <History size={18} />
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="text-sm font-semibold text-[var(--ink-1)]">Session history</h2>
+            <h2 className="text-sm font-semibold text-[var(--ink-1)]">♠ Session history</h2>
             <p className="mt-1 text-sm leading-5 text-[var(--ink-3)]">
-              Review past sessions, inspect drafts, and open any settlement table.
+              Review every hand history, inspect open drafts, and reopen any settlement table.
             </p>
           </div>
           <ArrowRight size={16} className="mt-1 shrink-0 text-[var(--ink-3)] transition group-hover:translate-x-0.5" />

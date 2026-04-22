@@ -1,38 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  /* Content surfaces */
-  --surface-0: #f5f1e8;
-  --surface-1: #faf7f2;
-  --surface-2: #ede7da;
+  /* Content surfaces — light casino felt green */
+  --surface-0: #f0f7f3;
+  --surface-1: #f7fbf8;
+  --surface-2: #e2ede6;
 
   /* Borders & lines */
-  --line: #e0d8cc;
+  --line: #c8ddd0;
 
   /* Text / ink */
-  --ink-1: #1a1714;
-  --ink-2: #5c5248;
-  --ink-3: #9c9088;
+  --ink-1: #0e1f16;
+  --ink-2: #3e5a48;
+  --ink-3: #7a9e87;
 
-  /* Content accent (warm brown) */
-  --accent: #5c5550;
-  --accent-soft: #e6e0d8;
-  --on-accent: #f8f5ee;
+  /* Content accent — casino felt green */
+  --accent: #1a6b3a;
+  --accent-soft: #c4ead4;
+  --on-accent: #f0fdf4;
 
   /* Semantic tones */
-  --positive: #0f766e;
-  --negative: #b42318;
-  --positive-subtle: #f0fdf9;
-  --negative-subtle: #fff5f5;
+  --positive: #16a34a;
+  --negative: #dc2626;
+  --positive-subtle: #f0fdf4;
+  --negative-subtle: #fef2f2;
 
-  /* Sidebar */
-  --sidebar-bg: #1a1714;
-  --sidebar-border: rgba(255, 255, 255, 0.06);
-  --sidebar-text: rgba(245, 241, 232, 0.5);
-  --sidebar-text-hover: rgba(245, 241, 232, 0.8);
-  --sidebar-text-active: #f5f1e8;
-  --sidebar-item-active: rgba(245, 241, 232, 0.09);
-  --sidebar-item-hover: rgba(245, 241, 232, 0.05);
+  /* Sidebar — dark poker table backdrop */
+  --sidebar-bg: #091910;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-text: rgba(190, 230, 208, 0.5);
+  --sidebar-text-hover: rgba(190, 230, 208, 0.85);
+  --sidebar-text-active: #c4e8d4;
+  --sidebar-item-active: rgba(190, 230, 208, 0.1);
+  --sidebar-item-hover: rgba(190, 230, 208, 0.05);
   --sidebar-width: 240px;
 }
 
@@ -66,7 +66,7 @@ a {
 }
 
 ::selection {
-  background: rgba(92, 85, 80, 0.18);
+  background: rgba(26, 107, 58, 0.2);
 }
 
 input,
