@@ -321,13 +321,13 @@ export default async function SessionsPage({
                             finalizedAt={session.finalizedAt?.toISOString() ?? null}
                           />
                         </td>
-                        <td className="py-4 pr-4 text-[var(--ink-2)]">
+                        <td className="py-4 pr-4 font-numeric text-[var(--ink-2)]">
                           {session._count.sessionPlayers}
                         </td>
-                        <td className="py-4 pr-4 font-medium">{formatCurrency(totalBuyin)}</td>
-                        <td className="py-4 pr-4 font-medium">{formatCurrency(totalCashout)}</td>
+                        <td className="py-4 pr-4 font-numeric font-medium">{formatCurrency(totalBuyin)}</td>
+                        <td className="py-4 pr-4 font-numeric font-medium">{formatCurrency(totalCashout)}</td>
                         <td
-                          className={`py-4 pr-4 font-semibold ${
+                          className={`py-4 pr-4 font-numeric font-semibold ${
                             totalProfit > 0
                               ? "text-[var(--positive)]"
                               : totalProfit < 0
