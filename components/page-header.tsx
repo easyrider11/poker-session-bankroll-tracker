@@ -12,24 +12,25 @@ export function PageHeader({
   eyebrow?: string;
 }) {
   return (
-    <section className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-      <div className="space-y-2">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="space-y-1.5">
         {eyebrow ? (
-          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--ink-3)]">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--ink-3)]">
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="text-3xl font-extrabold tracking-tight text-[var(--ink-1)] sm:text-4xl">
+        <h1 className="text-2xl font-bold tracking-tight text-[var(--ink-1)] sm:text-3xl">
           {title}
         </h1>
         {description ? (
-          <p className="max-w-3xl text-sm leading-6 text-[var(--ink-2)] sm:text-base">
+          <p className="max-w-2xl text-sm leading-6 text-[var(--ink-2)]">
             {description}
           </p>
         ) : null}
       </div>
-
-      {actions ? <div className="flex flex-wrap gap-3">{actions}</div> : null}
-    </section>
+      {actions ? (
+        <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>
+      ) : null}
+    </div>
   );
 }

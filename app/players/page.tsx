@@ -65,7 +65,7 @@ export default async function PlayersPage({
         actions={
           <Link
             href="/sessions/new"
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--on-accent)] transition hover:opacity-90"
           >
             <Plus size={15} />
             New session
@@ -133,7 +133,7 @@ export default async function PlayersPage({
               {query ? (
                 <Link
                   href="/players"
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--line)] px-4 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+                  className="inline-flex h-9 items-center justify-center rounded-lg border border-[var(--line)] px-4 text-sm font-medium text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
                 >
                   Clear
                 </Link>

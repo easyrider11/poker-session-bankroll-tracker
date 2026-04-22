@@ -1,18 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --surface-0: #f4f0e7;
-  --surface-1: #fbf8f1;
-  --surface-2: #f0e9de;
-  --line: #ddd2bf;
-  --ink-1: #181511;
-  --ink-2: #5a5147;
-  --ink-3: #897f73;
-  --accent: #5d5851;
-  --accent-soft: #e5dfd6;
+  /* Content surfaces */
+  --surface-0: #f5f1e8;
+  --surface-1: #faf7f2;
+  --surface-2: #ede7da;
+
+  /* Borders & lines */
+  --line: #e0d8cc;
+
+  /* Text / ink */
+  --ink-1: #1a1714;
+  --ink-2: #5c5248;
+  --ink-3: #9c9088;
+
+  /* Content accent (warm brown) */
+  --accent: #5c5550;
+  --accent-soft: #e6e0d8;
   --on-accent: #f8f5ee;
+
+  /* Semantic tones */
   --positive: #0f766e;
   --negative: #b42318;
+  --positive-subtle: #f0fdf9;
+  --negative-subtle: #fff5f5;
+
+  /* Sidebar */
+  --sidebar-bg: #1a1714;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-text: rgba(245, 241, 232, 0.5);
+  --sidebar-text-hover: rgba(245, 241, 232, 0.8);
+  --sidebar-text-active: #f5f1e8;
+  --sidebar-item-active: rgba(245, 241, 232, 0.09);
+  --sidebar-item-hover: rgba(245, 241, 232, 0.05);
+  --sidebar-width: 240px;
 }
 
 @theme inline {
@@ -27,16 +48,13 @@
 }
 
 html {
-  background: var(--surface-0);
+  background: var(--sidebar-bg);
   color-scheme: light;
 }
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top right, rgba(93, 88, 81, 0.09), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(137, 127, 115, 0.14), transparent 32%),
-    var(--surface-0);
+  background: var(--surface-0);
   color: var(--ink-1);
   font-family: var(--font-manrope), sans-serif;
   line-height: 1.5;
@@ -48,7 +66,7 @@ a {
 }
 
 ::selection {
-  background: rgba(93, 88, 81, 0.18);
+  background: rgba(92, 85, 80, 0.18);
 }
 
 input,
@@ -57,4 +75,16 @@ select,
 button {
   font: inherit;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Sidebar scrollbar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
 }

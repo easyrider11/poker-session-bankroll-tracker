@@ -13,15 +13,13 @@ export function EmptyState({
   icon?: LucideIcon;
 }) {
   return (
-    <div className="rounded-[24px] border border-dashed border-[var(--line)] bg-[var(--surface-0)] px-6 py-10 text-center">
-      <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--surface-2)] text-[var(--ink-3)]">
-        <Icon size={22} />
+    <div className="flex flex-col items-center rounded-xl border border-dashed border-[var(--line)] bg-[var(--surface-0)] px-6 py-12 text-center">
+      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-[var(--line)] bg-[var(--surface-1)] text-[var(--ink-3)]">
+        <Icon size={20} strokeWidth={1.5} />
       </div>
-      <h3 className="text-lg font-bold text-[var(--ink-1)]">{title}</h3>
-      <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-[var(--ink-2)]">
-        {description}
-      </p>
-      {action ? <div className="mt-5 flex justify-center">{action}</div> : null}
+      <h3 className="text-sm font-semibold text-[var(--ink-1)]">{title}</h3>
+      <p className="mx-auto mt-1.5 max-w-xs text-sm text-[var(--ink-3)]">{description}</p>
+      {action ? <div className="mt-5">{action}</div> : null}
     </div>
   );
 }
