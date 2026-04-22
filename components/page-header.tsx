@@ -15,7 +15,7 @@ export function PageHeader({
     <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
       <div className="space-y-1.5">
         {eyebrow ? (
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--ink-3)]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-3)]">
             {eyebrow}
           </p>
         ) : null}

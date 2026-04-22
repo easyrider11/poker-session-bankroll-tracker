@@ -36,6 +36,7 @@ export default async function Home() {
   return (
     <div className="space-y-8">
       <PageHeader
+        eyebrow="♠ ♣ ♥ ♦"
         title="Dashboard"
         description="Track player bankrolls, settle the felt, and keep every cash game auditable."
         actions={
@@ -51,16 +52,16 @@ export default async function Home() {
 
       {/* Stats */}
       <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="🪙 Players" value={playerCount.toString()} helper="Registered at the table" icon={Users} />
-        <StatCard label="🃏 Sessions" value={sessionCount.toString()} helper={`${finalizedCount} finalized`} icon={CalendarDays} />
+        <StatCard label="Players" value={playerCount.toString()} helper="Registered at the table" icon={Users} />
+        <StatCard label="Sessions" value={sessionCount.toString()} helper={`${finalizedCount} finalized`} icon={CalendarDays} />
         <StatCard
-          label="♣ Lifetime Buy-ins"
+          label="Lifetime Buy-ins"
           value={formatCurrency(lifetimeTotals._sum.lifetimeBuyin ?? 0)}
           helper="Chips in — finalized sessions"
           icon={ArrowDownLeft}
         />
         <StatCard
-          label="♠ Lifetime Profit"
+          label="Lifetime Profit"
           value={formatSignedCurrency(lifetimeTotals._sum.lifetimeProfit ?? 0)}
           helper="Should net near zero across all players"
           icon={TrendingUp}
@@ -185,7 +186,7 @@ export default async function Home() {
                       ].map(({ label, value, profit }) => (
                         <div key={label} className="rounded-lg bg-[var(--surface-0)] px-3 py-2">
                           <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--ink-3)]">{label}</p>
-                          <p className={`mt-1 text-sm font-semibold ${profit !== undefined ? (profit > 0 ? "text-[var(--positive)]" : profit < 0 ? "text-[var(--negative)]" : "text-[var(--ink-2)]") : "text-[var(--ink-1)]"}`}>
+                          <p className={`mt-1 font-numeric text-sm font-semibold ${profit !== undefined ? (profit > 0 ? "text-[var(--positive)]" : profit < 0 ? "text-[var(--negative)]" : "text-[var(--ink-2)]") : "text-[var(--ink-1)]"}`}>
                             {value}
                           </p>
                         </div>
@@ -228,10 +229,10 @@ export default async function Home() {
                           </div>
                         </td>
                         <td className="py-3.5 pr-4 text-[var(--ink-3)]">{formatDate(session.sessionDate)}</td>
-                        <td className="py-3.5 pr-4 text-[var(--ink-2)]">{session._count.sessionPlayers}</td>
-                        <td className="py-3.5 pr-4 font-medium">{formatCurrency(totalBuyin)}</td>
-                        <td className="py-3.5 pr-4 font-medium">{formatCurrency(totalCashout)}</td>
-                        <td className={`py-3.5 font-semibold ${totalProfit > 0 ? "text-[var(--positive)]" : totalProfit < 0 ? "text-[var(--negative)]" : "text-[var(--ink-2)]"}`}>
+                        <td className="py-3.5 pr-4 font-numeric text-[var(--ink-2)]">{session._count.sessionPlayers}</td>
+                        <td className="py-3.5 pr-4 font-numeric font-medium">{formatCurrency(totalBuyin)}</td>
+                        <td className="py-3.5 pr-4 font-numeric font-medium">{formatCurrency(totalCashout)}</td>
+                        <td className={`py-3.5 font-numeric font-semibold ${totalProfit > 0 ? "text-[var(--positive)]" : totalProfit < 0 ? "text-[var(--negative)]" : "text-[var(--ink-2)]"}`}>
                           {formatSignedCurrency(totalProfit)}
                         </td>
                       </tr>
