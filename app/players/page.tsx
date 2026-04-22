@@ -1,3 +1,4 @@
+import { Users, ArrowDownLeft, ArrowUpRight, TrendingUp, Plus } from "lucide-react";
 import Link from "next/link";
 
 import { AddPlayerForm } from "@/components/players/add-player-form";
@@ -64,29 +65,38 @@ export default async function PlayersPage({
         actions={
           <Link
             href="/sessions/new"
-            className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--on-accent)] transition hover:opacity-90"
           >
+            <Plus size={15} />
             New session
           </Link>
         }
       />
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Players" value={String(totals._count.id)} helper="Across the full roster" />
+        <StatCard
+          label="Players"
+          value={String(totals._count.id)}
+          helper="Across the full roster"
+          icon={Users}
+        />
         <StatCard
           label="Lifetime Buy-ins"
           value={formatCurrency(totals._sum.lifetimeBuyin ?? 0)}
           helper="Finalized sessions only"
+          icon={ArrowDownLeft}
         />
         <StatCard
           label="Lifetime Cash-outs"
           value={formatCurrency(totals._sum.lifetimeCashout ?? 0)}
           helper="Finalized sessions only"
+          icon={ArrowUpRight}
         />
         <StatCard
           label="Lifetime Profit"
           value={formatSignedCurrency(totals._sum.lifetimeProfit ?? 0)}
           helper="Should net toward zero across the table"
+          icon={TrendingUp}
           tone={
             (totals._sum.lifetimeProfit ?? 0) > 0
               ? "positive"
@@ -123,7 +133,7 @@ export default async function PlayersPage({
               {query ? (
                 <Link
                   href="/players"
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--line)] px-4 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+                  className="inline-flex h-9 items-center justify-center rounded-lg border border-[var(--line)] px-4 text-sm font-medium text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
                 >
                   Clear
                 </Link>
@@ -139,6 +149,7 @@ export default async function PlayersPage({
                   ? "Try a different search term or clear the filter."
                   : "Add your first player to start building reusable session rosters."
               }
+              icon={Users}
             />
           ) : (
             <PlayersTable players={serializedPlayers} />

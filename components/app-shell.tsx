@@ -1,98 +1,174 @@
 "use client";
 
+import { LayoutDashboard, Users, History, Plus, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "Dashboard", shortLabel: "Home" },
-  { href: "/players", label: "Players", shortLabel: "Players" },
-  { href: "/sessions", label: "Sessions", shortLabel: "History" },
-  { href: "/sessions/new", label: "New Session", shortLabel: "New" },
+  { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/players", label: "Players", icon: Users },
+  { href: "/sessions", label: "Session history", icon: History },
+  { href: "/sessions/new", label: "New session", icon: Plus },
 ];
 
-export function AppShell({ children }: { children: ReactNode }) {
+function NavItems({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen">
-      <header className="sticky top-0 z-30 border-b border-[var(--line)] bg-[var(--surface-1)]/90 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-start justify-between gap-3 md:flex-row md:items-center">
-            <div>
-              <Link href="/" className="text-lg font-extrabold tracking-tight text-[var(--ink-1)]">
-                Poker Session Bankroll Tracker
-              </Link>
-              <p className="mt-1 max-w-2xl text-sm text-[var(--ink-2)]">
-                Practical cash-game tracking for Texas Hold&apos;em sessions.
-              </p>
-            </div>
+    <nav className="flex flex-col gap-0.5 px-3">
+      {navItems.map((item) => {
+        const isActive =
+          item.href === "/"
+            ? pathname === item.href
+            : pathname === item.href || pathname.startsWith(`${item.href}/`);
+        const Icon = item.icon;
 
-            <Link
-              href="/sessions/new"
-              className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] px-4 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90 md:hidden"
-            >
-              New session
-            </Link>
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={onNavigate}
+            className={cn(
+              "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+              isActive
+                ? "bg-[var(--sidebar-item-active)] text-[var(--sidebar-text-active)]"
+                : "text-[var(--sidebar-text)] hover:bg-[var(--sidebar-item-hover)] hover:text-[var(--sidebar-text-hover)]",
+            )}
+          >
+            <Icon
+              size={16}
+              className={cn(
+                "shrink-0 transition-colors",
+                isActive
+                  ? "text-[var(--sidebar-text-active)]"
+                  : "text-[var(--sidebar-text)] group-hover:text-[var(--sidebar-text-hover)]",
+              )}
+            />
+            {item.href === "/sessions/new" ? (
+              <span className="flex flex-1 items-center justify-between">
+                {item.label}
+                <span className="rounded-md bg-[var(--sidebar-item-active)] px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--sidebar-text)]">
+                  +
+                </span>
+              </span>
+            ) : (
+              item.label
+            )}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
 
-            <nav className="hidden flex-wrap gap-2 md:flex">
-              {navItems.map((item) => {
-                const isActive =
-                  item.href === "/"
-                    ? pathname === item.href
-                    : pathname === item.href || pathname.startsWith(`${item.href}/`);
+function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
+  return (
+    <div className="flex h-full flex-col" style={{ background: "var(--sidebar-bg)" }}>
+      {/* Logo */}
+      <div
+        className="flex h-14 items-center gap-3 px-5"
+        style={{ borderBottom: "1px solid var(--sidebar-border)" }}
+      >
+        <Link
+          href="/"
+          onClick={onNavigate}
+          className="flex items-center gap-2.5 text-[var(--sidebar-text-active)]"
+        >
+          <span className="text-xl leading-none">🃏</span>
+          <span className="text-sm font-bold tracking-tight">Poker Tracker</span>
+        </Link>
+      </div>
 
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      "rounded-full px-4 py-2 text-sm font-semibold transition",
-                      isActive
-                        ? "bg-[var(--accent)] text-[var(--on-accent)]"
-                        : "border border-[var(--line)] text-[var(--ink-2)] hover:border-[var(--ink-1)] hover:text-[var(--ink-1)]",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
+      {/* Nav */}
+      <div className="flex flex-1 flex-col gap-6 overflow-y-auto py-4 sidebar-scroll">
+        <div>
+          <p className="mb-1.5 px-6 text-[10px] font-semibold uppercase tracking-widest text-[var(--sidebar-text)] opacity-60">
+            Navigation
+          </p>
+          <NavItems onNavigate={onNavigate} />
         </div>
-      </header>
+      </div>
 
-      <main className="mx-auto w-full max-w-7xl px-4 py-6 pb-28 sm:px-6 sm:py-8 md:pb-8 lg:px-8">
-        {children}
-      </main>
+      {/* Footer — card suits */}
+      <div
+        className="px-4 py-3 text-center"
+        style={{ borderTop: "1px solid var(--sidebar-border)" }}
+      >
+        <p className="text-sm tracking-[0.3em] text-[var(--sidebar-text)] opacity-60">
+          ♠ ♣ ♥ ♦
+        </p>
+        <p className="mt-1 text-[10px] text-[var(--sidebar-text)] opacity-35">
+          Texas Hold&apos;em tracker
+        </p>
+      </div>
+    </div>
+  );
+}
 
-      <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-[var(--line)] bg-[var(--surface-1)]/95 px-4 py-3 backdrop-blur md:hidden">
-        <div className="mx-auto grid max-w-7xl grid-cols-4 gap-2">
-          {navItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === item.href
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+export function AppShell({ children }: { children: ReactNode }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "flex min-h-[52px] flex-col items-center justify-center rounded-2xl px-2 text-center text-xs font-semibold transition",
-                  isActive
-                    ? "bg-[var(--accent)] text-[var(--on-accent)]"
-                    : "text-[var(--ink-2)] hover:bg-[var(--surface-2)] hover:text-[var(--ink-1)]",
-                )}
-              >
-                {item.shortLabel}
-              </Link>
-            );
-          })}
+  return (
+    <div className="flex min-h-screen">
+      {/* Desktop sidebar */}
+      <aside
+        className="fixed inset-y-0 left-0 z-40 hidden w-[240px] md:flex md:flex-col"
+        style={{ background: "var(--sidebar-bg)" }}
+      >
+        <Sidebar />
+      </aside>
+
+      {/* Mobile: overlay + drawer */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setMobileOpen(false)}
+          />
+          <aside className="absolute inset-y-0 left-0 w-[240px] shadow-2xl">
+            <Sidebar onNavigate={() => setMobileOpen(false)} />
+          </aside>
         </div>
-      </nav>
+      )}
+
+      {/* Content area */}
+      <div className="flex flex-1 flex-col md:pl-[240px]">
+        {/* Mobile top bar */}
+        <header
+          className="sticky top-0 z-30 flex h-14 items-center gap-4 px-4 md:hidden"
+          style={{
+            background: "var(--sidebar-bg)",
+            borderBottom: "1px solid var(--sidebar-border)",
+          }}
+        >
+          <button
+            onClick={() => setMobileOpen(true)}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-[var(--sidebar-text-active)] transition hover:bg-[var(--sidebar-item-hover)]"
+            aria-label="Open menu"
+          >
+            <Menu size={20} />
+          </button>
+          <Link href="/" className="flex items-center gap-2 text-[var(--sidebar-text-active)]">
+            <span className="text-lg leading-none">🃏</span>
+            <span className="text-sm font-bold">Poker Tracker</span>
+          </Link>
+          <Link
+            href="/sessions/new"
+            className="ml-auto flex h-9 items-center gap-1.5 rounded-full bg-[var(--accent)] px-3 text-xs font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+          >
+            <Plus size={14} />
+            New
+          </Link>
+        </header>
+
+        {/* Page content */}
+        <main className="flex-1 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10 pb-8">
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

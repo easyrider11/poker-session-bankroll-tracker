@@ -1,3 +1,4 @@
+import { ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -59,14 +60,16 @@ export default async function SessionDetailPage({
           <div className="flex flex-wrap gap-3">
             <Link
               href="/sessions"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-medium text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <ChevronLeft size={15} />
               Back to history
             </Link>
             <Link
               href="/sessions/new"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-medium text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <Plus size={15} />
               New session
             </Link>
             <DeleteSessionButton
@@ -77,7 +80,7 @@ export default async function SessionDetailPage({
         }
       />
 
-      <section className="rounded-[28px] border border-[var(--line)] bg-[var(--surface-1)] p-6 shadow-[0_18px_70px_rgba(24,21,17,0.06)]">
+      <section className="rounded-2xl border border-[var(--line)] bg-[var(--surface-1)] p-6">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-3xl space-y-3">
             <div className="flex flex-wrap items-center gap-3">
@@ -104,7 +107,7 @@ export default async function SessionDetailPage({
             </div>
           </div>
 
-          <div className="rounded-[24px] border border-[var(--line)] bg-white px-4 py-4 lg:min-w-[250px]">
+          <div className="rounded-xl border border-[var(--line)] bg-white px-4 py-4 lg:min-w-[250px]">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--ink-3)]">
               Session status
             </p>

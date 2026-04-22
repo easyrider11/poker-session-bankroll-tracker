@@ -1,18 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --surface-0: #f4f0e7;
-  --surface-1: #fbf8f1;
-  --surface-2: #f0e9de;
-  --line: #ddd2bf;
-  --ink-1: #181511;
-  --ink-2: #5a5147;
-  --ink-3: #897f73;
-  --accent: #5d5851;
-  --accent-soft: #e5dfd6;
-  --on-accent: #f8f5ee;
-  --positive: #0f766e;
-  --negative: #b42318;
+  /* Content surfaces — light casino felt green */
+  --surface-0: #f0f7f3;
+  --surface-1: #f7fbf8;
+  --surface-2: #e2ede6;
+
+  /* Borders & lines */
+  --line: #c8ddd0;
+
+  /* Text / ink */
+  --ink-1: #0e1f16;
+  --ink-2: #3e5a48;
+  --ink-3: #7a9e87;
+
+  /* Content accent — casino felt green */
+  --accent: #1a6b3a;
+  --accent-soft: #c4ead4;
+  --on-accent: #f0fdf4;
+
+  /* Semantic tones */
+  --positive: #16a34a;
+  --negative: #dc2626;
+  --positive-subtle: #f0fdf4;
+  --negative-subtle: #fef2f2;
+
+  /* Sidebar — dark poker table backdrop */
+  --sidebar-bg: #091910;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-text: rgba(190, 230, 208, 0.5);
+  --sidebar-text-hover: rgba(190, 230, 208, 0.85);
+  --sidebar-text-active: #c4e8d4;
+  --sidebar-item-active: rgba(190, 230, 208, 0.1);
+  --sidebar-item-hover: rgba(190, 230, 208, 0.05);
+  --sidebar-width: 240px;
 }
 
 @theme inline {
@@ -27,16 +48,13 @@
 }
 
 html {
-  background: var(--surface-0);
+  background: var(--sidebar-bg);
   color-scheme: light;
 }
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top right, rgba(93, 88, 81, 0.09), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(137, 127, 115, 0.14), transparent 32%),
-    var(--surface-0);
+  background: var(--surface-0);
   color: var(--ink-1);
   font-family: var(--font-manrope), sans-serif;
   line-height: 1.5;
@@ -48,7 +66,7 @@ a {
 }
 
 ::selection {
-  background: rgba(93, 88, 81, 0.18);
+  background: rgba(26, 107, 58, 0.2);
 }
 
 input,
@@ -57,4 +75,16 @@ select,
 button {
   font: inherit;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Sidebar scrollbar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
 }

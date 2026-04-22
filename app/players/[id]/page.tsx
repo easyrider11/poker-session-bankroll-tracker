@@ -1,3 +1,4 @@
+import { CalendarDays, ArrowDownLeft, ArrowUpRight, TrendingUp, ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -60,14 +61,16 @@ export default async function PlayerDetailPage({
           <div className="flex flex-wrap gap-3">
             <Link
               href="/players"
-              className="rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-medium text-[var(--ink-1)] transition hover:border-[var(--ink-1)]"
             >
+              <ChevronLeft size={15} />
               Back to players
             </Link>
             <Link
               href="/sessions/new"
-              className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] transition hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--on-accent)] transition hover:opacity-90"
             >
+              <Plus size={15} />
               Start session
             </Link>
             <DeletePlayerButton
@@ -80,12 +83,13 @@ export default async function PlayerDetailPage({
       />
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Sessions played" value={String(player.totalSessions)} helper="Finalized sessions" />
-        <StatCard label="Lifetime Buy-in" value={formatCurrency(player.lifetimeBuyin)} />
-        <StatCard label="Lifetime Cash-out" value={formatCurrency(player.lifetimeCashout)} />
+        <StatCard label="Sessions played" value={String(player.totalSessions)} helper="Finalized sessions" icon={CalendarDays} />
+        <StatCard label="Lifetime Buy-in" value={formatCurrency(player.lifetimeBuyin)} icon={ArrowDownLeft} />
+        <StatCard label="Lifetime Cash-out" value={formatCurrency(player.lifetimeCashout)} icon={ArrowUpRight} />
         <StatCard
           label="Lifetime Profit"
           value={formatSignedCurrency(player.lifetimeProfit)}
+          icon={TrendingUp}
           tone={
             player.lifetimeProfit > 0
               ? "positive"
@@ -104,6 +108,7 @@ export default async function PlayerDetailPage({
           <EmptyState
             title="No session history"
             description="This player has not been included in any saved sessions yet."
+            icon={CalendarDays}
           />
         ) : (
           <div className="space-y-4">
@@ -112,7 +117,7 @@ export default async function PlayerDetailPage({
                 <Link
                   key={session.id}
                   href={`/sessions/${session.sessionId}`}
-                  className="block rounded-[24px] border border-[var(--line)] bg-white p-4 shadow-[0_10px_40px_rgba(24,21,17,0.04)] transition hover:border-[var(--ink-1)]"
+                  className="block rounded-xl border border-[var(--line)] bg-white p-4 transition hover:border-[var(--ink-3)]"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
@@ -127,24 +132,24 @@ export default async function PlayerDetailPage({
                   </div>
 
                   <div className="mt-4 grid grid-cols-2 gap-3">
-                    <div className="rounded-[20px] bg-[var(--surface-0)] px-4 py-3">
-                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--ink-3)]">
+                    <div className="rounded-lg bg-[var(--surface-0)] px-3 py-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--ink-3)]">
                         Buy-in
                       </p>
                       <p className="mt-2 font-semibold text-[var(--ink-1)]">
                         {formatCurrency(session.totalBuyin)}
                       </p>
                     </div>
-                    <div className="rounded-[20px] bg-[var(--surface-0)] px-4 py-3">
-                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--ink-3)]">
+                    <div className="rounded-lg bg-[var(--surface-0)] px-3 py-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--ink-3)]">
                         Cash-out
                       </p>
                       <p className="mt-2 font-semibold text-[var(--ink-1)]">
                         {formatCurrency(session.totalCashout)}
                       </p>
                     </div>
-                    <div className="rounded-[20px] bg-[var(--surface-0)] px-4 py-3 col-span-2">
-                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--ink-3)]">
+                    <div className="rounded-lg bg-[var(--surface-0)] px-3 py-2 col-span-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--ink-3)]">
                         Profit / loss
                       </p>
                       <p
@@ -167,7 +172,7 @@ export default async function PlayerDetailPage({
             <div className="hidden overflow-x-auto md:block">
               <table className="min-w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[var(--line)] text-xs uppercase tracking-[0.24em] text-[var(--ink-3)]">
+                  <tr className="text-xs uppercase tracking-wider text-[var(--ink-3)] border-b border-[var(--line)]">
                     <th className="pb-3 pr-4 font-medium">Session</th>
                     <th className="pb-3 pr-4 font-medium">Date</th>
                     <th className="pb-3 pr-4 font-medium">Buy-in</th>
