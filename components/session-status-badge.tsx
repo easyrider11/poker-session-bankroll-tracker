@@ -12,21 +12,21 @@ export function SessionStatusBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium",
+        "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-wide",
         isFinalized
-          ? "border-emerald-200 bg-emerald-50 text-[var(--positive)]"
-          : "border-[var(--line)] bg-[var(--surface-2)] text-[var(--ink-2)]",
+          ? "bg-[rgba(114,195,141,0.13)] text-[var(--positive)] ring-1 ring-[rgba(114,195,141,0.22)]"
+          : "bg-[rgba(201,168,77,0.12)] text-[var(--warning)] ring-1 ring-[rgba(201,168,77,0.2)]",
         className,
       )}
     >
       <span className="relative flex h-1.5 w-1.5">
         {!isFinalized && (
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--ink-3)] opacity-60" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--warning)] opacity-60" />
         )}
         <span
           className={cn(
             "relative inline-flex h-1.5 w-1.5 rounded-full",
-            isFinalized ? "bg-[var(--positive)]" : "bg-[var(--ink-2)]",
+            isFinalized ? "bg-[var(--positive)]" : "bg-[var(--warning)]",
           )}
         />
       </span>

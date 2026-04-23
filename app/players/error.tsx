@@ -29,7 +29,7 @@ export default function PlayersError({
           </Button>
           <Link
             href="/"
-            className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--on-accent)] transition hover:opacity-90"
+            className="rounded-[14px] bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] shadow-[0_2px_8px_rgba(30,74,57,0.25)] transition-all hover:opacity-90 active:scale-[0.98]"
           >
             Dashboard
           </Link>
