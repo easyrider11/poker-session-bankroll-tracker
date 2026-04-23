@@ -42,7 +42,7 @@ export default async function Home() {
         actions={
           <Link
             href="/sessions/new"
-            className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--on-accent)] transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-[14px] bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] shadow-[0_2px_8px_rgba(30,74,57,0.25)] transition-all hover:opacity-90 active:scale-[0.98]"
           >
             <span className="text-base leading-none">🃏</span>
             Deal new session
@@ -79,7 +79,7 @@ export default async function Home() {
       <section className="grid gap-3 lg:grid-cols-3">
         <Link
           href="/sessions/new"
-          className="group flex items-start gap-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-1)] p-5 transition hover:border-[var(--ink-3)] hover:shadow-sm"
+          className="group flex items-start gap-4 rounded-[22px] border border-[rgba(17,17,17,0.07)] bg-[var(--surface-1)] p-5 shadow-[0_4px_16px_rgba(0,0,0,0.07)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)]"
         >
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)] text-[var(--on-accent)]">
             <Zap size={18} />
@@ -95,7 +95,7 @@ export default async function Home() {
 
         <Link
           href="/players"
-          className="group flex items-start gap-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-1)] p-5 transition hover:border-[var(--ink-3)] hover:shadow-sm"
+          className="group flex items-start gap-4 rounded-[22px] border border-[rgba(17,17,17,0.07)] bg-[var(--surface-1)] p-5 shadow-[0_4px_16px_rgba(0,0,0,0.07)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)]"
         >
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--surface-2)] text-[var(--ink-2)]">
             <Users size={18} />
@@ -111,7 +111,7 @@ export default async function Home() {
 
         <Link
           href="/sessions"
-          className="group flex items-start gap-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-1)] p-5 transition hover:border-[var(--ink-3)] hover:shadow-sm"
+          className="group flex items-start gap-4 rounded-[22px] border border-[rgba(17,17,17,0.07)] bg-[var(--surface-1)] p-5 shadow-[0_4px_16px_rgba(0,0,0,0.07)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)]"
         >
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--surface-2)] text-[var(--ink-2)]">
             <History size={18} />
@@ -149,7 +149,7 @@ export default async function Home() {
             action={
               <Link
                 href="/sessions/new"
-                className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--on-accent)] transition hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-[14px] bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--on-accent)] shadow-[0_2px_8px_rgba(30,74,57,0.25)] transition-all hover:opacity-90 active:scale-[0.98]"
               >
                 <Plus size={14} />
                 Create session

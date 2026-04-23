@@ -12,12 +12,12 @@ export function SectionCard({
   action?: ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-[var(--line)] bg-[var(--surface-1)] overflow-hidden">
-      <div className="flex items-start justify-between gap-4 border-b border-[var(--line)] px-6 py-4">
+    <section className="overflow-hidden rounded-[22px] border border-[rgba(17,17,17,0.07)] bg-[var(--surface-1)] shadow-[0_8px_24px_rgba(0,0,0,0.07)]">
+      <div className="flex items-start justify-between gap-4 border-b border-[rgba(17,17,17,0.06)] px-6 py-4">
         <div className="space-y-0.5">
-          <h2 className="text-base font-semibold tracking-tight text-[var(--ink-1)]">{title}</h2>
+          <h2 className="text-sm font-semibold tracking-tight text-[var(--ink-1)]">{title}</h2>
           {description ? (
-            <p className="text-sm text-[var(--ink-3)]">{description}</p>
+            <p className="text-xs leading-5 text-[var(--ink-3)]">{description}</p>
           ) : null}
         </div>
         {action ? <div className="shrink-0">{action}</div> : null}

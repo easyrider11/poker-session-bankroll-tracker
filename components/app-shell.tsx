@@ -64,9 +64,11 @@ function NavItems({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
+const sidebarGradient = "linear-gradient(to bottom right, #0e241b, #163328, #1e4a39)";
+
 function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <div className="flex h-full flex-col" style={{ background: "var(--sidebar-bg)" }}>
+    <div className="flex h-full flex-col" style={{ background: sidebarGradient }}>
       {/* Logo */}
       <div
         className="flex h-14 items-center gap-3 px-5"
@@ -116,7 +118,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       {/* Desktop sidebar */}
       <aside
         className="fixed inset-y-0 left-0 z-40 hidden w-[240px] md:flex md:flex-col"
-        style={{ background: "var(--sidebar-bg)" }}
+        style={{ background: sidebarGradient }}
       >
         <Sidebar />
       </aside>

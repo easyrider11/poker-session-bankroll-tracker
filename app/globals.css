@@ -1,38 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  /* Content surfaces — light casino felt green */
-  --surface-0: #f0f7f3;
-  --surface-1: #f7fbf8;
-  --surface-2: #e2ede6;
+  /* Surfaces — warm cream from PLTheme */
+  --surface-0: #ede9e0;
+  --surface-1: #f5f3ec;
+  --surface-2: #e8e6dd;
 
-  /* Borders & lines */
-  --line: #c8ddd0;
+  /* Borders */
+  --line: rgba(17, 17, 17, 0.09);
 
-  /* Text / ink */
-  --ink-1: #0e1f16;
-  --ink-2: #3e5a48;
-  --ink-3: #7a9e87;
+  /* Text / ink — neutral, no green tint */
+  --ink-1: #111111;
+  --ink-2: #4d4a45;
+  --ink-3: #8a8680;
 
-  /* Content accent — casino felt green */
-  --accent: #1a6b3a;
-  --accent-soft: #c4ead4;
-  --on-accent: #f0fdf4;
+  /* Content accent — PLTheme.backgroundDeep */
+  --accent: #1e4a39;
+  --accent-soft: rgba(30, 74, 57, 0.12);
+  --on-accent: #f5f3ec;
 
-  /* Semantic tones */
-  --positive: #16a34a;
-  --negative: #dc2626;
-  --positive-subtle: #f0fdf4;
-  --negative-subtle: #fef2f2;
+  /* Semantic tones — from PLTheme */
+  --positive: #72c38d;
+  --negative: #8b3e35;
+  --warning: #c9a84d;
+  --positive-subtle: rgba(114, 195, 141, 0.13);
+  --negative-subtle: rgba(139, 62, 53, 0.1);
 
-  /* Sidebar — dark poker table backdrop */
-  --sidebar-bg: #091910;
-  --sidebar-border: rgba(255, 255, 255, 0.07);
-  --sidebar-text: rgba(190, 230, 208, 0.5);
-  --sidebar-text-hover: rgba(190, 230, 208, 0.85);
-  --sidebar-text-active: #c4e8d4;
-  --sidebar-item-active: rgba(190, 230, 208, 0.1);
-  --sidebar-item-hover: rgba(190, 230, 208, 0.05);
+  /* Sidebar — PLTheme gradient */
+  --sidebar-bg-start: #0e241b;
+  --sidebar-bg-mid: #163328;
+  --sidebar-bg-end: #1e4a39;
+  --sidebar-border: rgba(255, 255, 255, 0.11);
+  --sidebar-text: rgba(245, 243, 236, 0.5);
+  --sidebar-text-hover: rgba(245, 243, 236, 0.82);
+  --sidebar-text-active: #f5f3ec;
+  --sidebar-item-active: rgba(245, 243, 236, 0.1);
+  --sidebar-item-hover: rgba(245, 243, 236, 0.06);
   --sidebar-width: 240px;
 }
 
@@ -48,17 +51,13 @@
 }
 
 html {
-  background: var(--sidebar-bg);
+  background: var(--sidebar-bg-start);
   color-scheme: light;
 }
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse 1200px 600px at 20% 0%, rgba(26, 107, 58, 0.05), transparent 60%),
-    radial-gradient(ellipse 900px 500px at 95% 100%, rgba(26, 107, 58, 0.07), transparent 55%),
-    var(--surface-0);
-  background-attachment: fixed;
+  background: var(--surface-0);
   color: var(--ink-1);
   font-family: var(--font-manrope), sans-serif;
   line-height: 1.5;
@@ -70,10 +69,6 @@ a {
   text-decoration: none;
 }
 
-.tabular {
-  font-variant-numeric: tabular-nums;
-}
-
 .font-numeric {
   font-family: var(--font-plex-mono), ui-monospace, monospace;
   font-variant-numeric: tabular-nums;
@@ -81,7 +76,7 @@ a {
 }
 
 ::selection {
-  background: rgba(26, 107, 58, 0.2);
+  background: rgba(30, 74, 57, 0.2);
 }
 
 input,
@@ -100,6 +95,6 @@ button {
   background: transparent;
 }
 .sidebar-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 2px;
 }
